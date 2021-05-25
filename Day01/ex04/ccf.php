@@ -1,4 +1,5 @@
 <?php
+
 function capital_city_from($name)
 {
 	$states = [
@@ -19,17 +20,13 @@ function capital_city_from($name)
 			foreach ($capitals as $key2 => $value2) {
 				if ($value1 == $key2) {
 					echo $value2."\n";
-				} else {
-					echo "Unknown";
+					return ;
 				}
 			}
-		} else {
-			echo "Unknown";
 		}
 	}
+	echo "Unknown\n";
 }
 
 capital_city_from("Alabama");
 capital_city_from("Oregan");
-
-?>
