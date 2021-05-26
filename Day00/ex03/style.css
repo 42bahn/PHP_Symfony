@@ -149,8 +149,7 @@ p[data-value] {
 
 p[data-value]:after {
 	content: attr(data-value) '%';
-	position: absolute; 
-	right: 0;
+	position: absolute; right:0;
 }
 
 

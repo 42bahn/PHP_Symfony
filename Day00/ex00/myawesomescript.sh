@@ -1,5 +1,4 @@
-#https://bit.ly/3oKyx6v
+#!/bin/sh
 
-domain=""
 domain=$(curl -I $1 | grep 'Location:' | cut -d" " -f2)
 echo $domain
