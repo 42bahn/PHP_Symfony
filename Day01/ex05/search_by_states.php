@@ -1,5 +1,4 @@
 <?php
-
 function search_by_states($str)
 {
 	$states = [
@@ -17,32 +16,18 @@ function search_by_states($str)
 	
 	$arr = explode(", ", $str);
 	
-	print_r($arr);
-	
 	foreach ($arr as $element) {
-		foreach ($states as $key1 => $value1) {
-			if ($element == $key1) {
-				foreach ($capitals as $key2 => $value2) {
-					if ($value1 == $key2) {
-						echo $value2." is the capital of ".$element.".\n";
-						continue ;
-					}
-				}
-			}
+		if (array_key_exists($element, $states)) {
+			if (array_key_exists($states[$element], $capitals)) 
+				echo $capitals[$states[$element]]." is the capital of ".$element."\n";
 		}
-		foreach ($capitals as $key1 => $value1) {
-			if ($element == $value1) {
-				foreach ($states as $key2 => $value2) {
-					if ($key1 == $value2) {
-						echo $element." is the capital of ".$key2.".\n";
-						continue ;
-					}
-				}
-			}
+		else if (($key = array_search($element, $capitals))) {
+			if ( ($key = array_search($key, $states)) )
+				echo $element." is the capital of ".$key."\n";
+			else
+				echo $element." is neither a capital nor a state.\n";
 		}
+		else 
+			echo $element." is neither a capital nor a state.\n";
 	}
-	echo $element." is neither a capital nor a state.\n";
-
 }
-
-search_by_states("Oregon, trenton, Topeka, NewJersey");

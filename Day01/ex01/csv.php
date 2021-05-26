@@ -8,6 +8,5 @@ while ( ($element = fgetcsv($fp, "100", ",")) !== FALSE) {
         echo $element[$idx] . "\n";
     }
 }
-
 fclose($fp);
 ?>

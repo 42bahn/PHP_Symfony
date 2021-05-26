@@ -8,11 +8,6 @@ function array2hash_sorted($array) {
         $idx++;
     }
     krsort($hash);
-    print ("Array\n(\n");
-    foreach ($hash as $key => $value) {
-        print ("\t");
-        echo "[".$key."] => ".$value."\n";
-    }
-    print(")\n");
+    print_r ($hash);
 }
 ?>
