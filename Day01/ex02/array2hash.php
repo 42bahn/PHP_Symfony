@@ -7,11 +7,14 @@ function array2hash($array) {
         $hash[$array[$idx][1]] = $array[$idx][0];
         $idx++;
     }
+    /*
     print ("Array\n(\n");
     foreach ($hash as $key => $value) {
         print ("\t");
         echo "[".$key."] => ".$value."\n";
     }
+    */
+    print_r($hash);
     print(")\n");
 }
 ?>
