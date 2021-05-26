@@ -40,19 +40,24 @@ function csv($file) {
     </body>
     </html>';
     
-    
-    $idx = 0;
-    $max = count($array);
     $sell = "";
-    while ($idx < $max)
+    foreach ($array as $key => $value)
     {
+        if ($value["position"] == 0) {
+            $sell = $sell."<tr>";
+        }
+        if ($key !== $value["position"]) {
+            $sell = $sell."<td>abc</td>";
+        }
         $sell = $sell."<td style='border: 1px solid black; padding:10px'>";
-        $sell = $sell."<h4>".$array[$idx]["name"]."</h4>";
-        $sell = $sell."<ul><li>No ".$array[$idx]["number"]."</li>";
-        $sell = $sell."<li>".$array[$idx]["small"]."</li>";
-        $sell = $sell."<li>".$array[$idx]["molar"]."</li></ul>";
+        $sell = $sell."<h4>".$value["name"]."</h4>";
+        $sell = $sell."<ul><li>No ".$value["number"]."</li>";
+        $sell = $sell."<li>".$value["small"]."</li>";
+        $sell = $sell."<li>".$value["molar"]."</li></ul>";
         $sell = $sell."</td>";
-        $idx += 1;
+        if ($value["position"] == 17) {
+            $sell = $sell."</tr>";
+        }
     }
     fwrite($file, $html_start.$sell.$html_end);
 ?>
